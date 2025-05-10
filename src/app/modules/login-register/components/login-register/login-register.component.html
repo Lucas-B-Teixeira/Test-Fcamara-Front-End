@@ -1,0 +1,110 @@
+<section>
+    <div 
+    class="container">
+
+        <div 
+        class="container__login" 
+        *ngIf="formLoginVisible">
+            <h1>Entrar</h1>
+
+            <form 
+            class="container__login__form" 
+            action="" 
+            [formGroup]="formLogin">
+                <div 
+                class="container__login__form__email">
+                    <input 
+                    type="text" 
+                    formControlName="email" 
+                    placeholder=" " 
+                    (blur)="invalidEmailLogin()">
+                    <label>E-mail</label>
+                </div>
+
+                <div 
+                class="container__login__form__password">
+                    <input 
+                    type="password" 
+                    formControlName="password" 
+                    placeholder=" " 
+                    (blur)="invalidPasswordLogin()">
+                    <label>Senha</label>
+                </div>
+                <p>Esqueceu sua senha? <a>Redefinir Senha</a></p>
+
+                <button 
+                [disabled]="!formLogin.valid" 
+                (click)="onLogin()">
+                    Entrar
+                </button>
+            </form>
+
+            <p>Ainda não possui uma conta? <a (click)="formLoginOrRegisterVisible()">Cadastre-se Agora!</a></p>
+        </div>
+
+        <div class="container__register" 
+        *ngIf="formRegisterVisible">
+            <h1>Cadastre-se</h1>
+
+            <form 
+            class="container__register__form" 
+            action="" 
+            [formGroup]="formRegister">
+                <div 
+                class="container__register__form__name">
+                    <input 
+                    type="text" 
+                    formControlName="name" 
+                    placeholder=" " 
+                    (blur)="invalidNameRegister()">
+                    <label>Nome</label>
+                </div>
+
+                <div 
+                class="container__register__form__email">
+                    <input 
+                    type="text" 
+                    formControlName="email" 
+                    placeholder=" " 
+                    (blur)="invalidEmailRegister()">
+                    <label>E-mail</label>
+                </div>
+
+                <div 
+                class="container__register__form__password">
+                    <input 
+                    type="password" 
+                    formControlName="password" 
+                    placeholder=" " 
+                    (blur)="invalidPasswordRegister()"
+                    (input)="onPasswordCheckRegister()">
+                    <label>Senha</label>
+                </div>
+
+                <div 
+                class="container__register__form__password">
+                    <input 
+                    type="password" 
+                    formControlName="passwordCheck" 
+                    placeholder=" "
+                    (blur)="invalidPasswordCheckRegister()">
+                    <label>Confirmação de senha</label>
+                </div>
+
+
+                <button 
+                [disabled]="!formRegister.valid" 
+                (click)="onCreateUser()">
+                    Cadastre-se
+                </button>
+            </form>
+
+            <p>Já possui uma conta? <a (click)="formLoginOrRegisterVisible()">Entre Agora!</a></p>
+        </div>
+
+        <div class="container__image">
+            <img src="../../../../../assets/images/logo.png" alt="logo">
+        </div>
+
+    </div>
+</section>

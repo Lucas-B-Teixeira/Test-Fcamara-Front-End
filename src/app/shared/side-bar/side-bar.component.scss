@@ -1,0 +1,103 @@
+aside{
+    width: 250px;
+    height: calc(100svh - 20px);
+    background: rgb(0, 92, 87);
+    background: linear-gradient(141deg, rgb(0, 92, 87) 50%, rgb(1, 78, 74) 95%);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.user-address{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 50px;
+    width: 90%;
+    padding-left: 5%;
+    gap: 5px;
+    cursor: pointer;
+    border-radius: 10px;
+
+    &__img{
+        width: 50px;
+        border-radius: 5px;
+        object-fit: cover;
+    }
+
+    &__info{
+        height: 100%;
+        width: 60%;
+        display: flex;
+        align-items: center;
+
+        h1{
+            font-size: 16px;
+            font-weight: 600;
+            margin: 0;
+            color: white;
+            opacity: 1;
+        }
+
+    }
+}
+
+.navigation{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
+    margin-top: 30px;
+
+    &__one, &__two, &__theree{
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+            
+        dl{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            width: 90%;
+            transition: all ease 0.5s;
+            height: 50px;
+            gap: 10px;
+            padding-left: 10%;
+            margin: 0;
+            
+            h4{
+                color: white;
+                font-size: 16px;
+                margin: 0;
+            }
+            img{
+                width: 20px;
+            }
+
+            &:hover{
+                background: linear-gradient(90deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%);
+                cursor:pointer;
+            }
+        }
+    }
+
+    
+}
+
+.line{
+    height: 1px;
+    width: 60%;
+    background-color: rgb(255, 255, 255, 0.3);
+}
+
+.selected{
+    background: linear-gradient(90deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0) 100%);
+    cursor:pointer;
+}
+

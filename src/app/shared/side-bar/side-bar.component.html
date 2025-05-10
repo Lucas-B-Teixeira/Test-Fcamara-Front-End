@@ -1,0 +1,42 @@
+<aside>
+    <div class="user-address">
+        <img class="user-address__img" src="../../../assets/images/short-icon.png" alt="">
+        <div class="user-address__info">
+            <h1>User Address</h1>
+        </div>
+    </div>
+
+    <nav class="navigation">
+        <ul class="navigation__one">
+
+            <dl 
+            class="navigation__one__home"
+            routerLink="/dashboard"
+            (click)="selectItem('dashboard')"
+            [ngClass]="{'selected': selectedItem == 'dashboard'}">
+                <img src="../../../assets/images/home.png" alt="">
+                <h4>Painel</h4>
+            </dl>
+
+            <dl 
+            class="navigation__one__tools" 
+            routerLink="/tools"
+            (click)="selectItem('tools')"
+            [ngClass]="{'selected': selectedItem === 'users'}">
+                <img src="../../../assets/images/home.png" alt="">
+                <h4>Usuários</h4>
+            </dl>
+
+             <dl 
+            class="navigation__one__tools" 
+            routerLink="/tools"
+            (click)="selectItem('tools')"
+            [ngClass]="{'selected': selectedItem === 'address'}">
+                <img src="../../../assets/images/address.png" alt="">
+                <h4>Endereços</h4>
+            </dl>
+
+        </ul>
+
+    </nav>
+</aside>
