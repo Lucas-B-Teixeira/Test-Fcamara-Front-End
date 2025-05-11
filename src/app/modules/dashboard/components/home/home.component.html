@@ -17,13 +17,30 @@ class="container">
             </p>
         </div>
 
-        <div class="container__box__cards">
+        <div 
+        class="container__box__cards loaded"
+        *ngIf="!isLoading">
             <app-card-all-users
             *ngIf="user.role == 'ADMIN'"
             [numberOfUsers]="numberOfUsers"></app-card-all-users>
 
             <app-card-all-address
             [numberOfAddresses]="numberOfAddresses"></app-card-all-address>
+        </div>
+
+        <div 
+        class="container__box__cards loading"
+        *ngIf="isLoading">
+            <ngx-skeleton-loader
+            *ngFor="let i of [1,2]"
+            appearance="line"
+            animation="progress"
+            [theme]="{ 
+                width: '250px', 
+                'height': '250px',
+                'border-radius': '20px',
+                'background-color': '#dbdbdb'}">
+            </ngx-skeleton-loader>
         </div>
 
 

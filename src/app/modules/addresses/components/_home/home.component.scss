@@ -47,25 +47,20 @@
         display: flex;
         flex-direction: column;
 
-        &__users{
+        &__users, &__admin{
             display: flex;
             flex-direction: column;
-            gap: 15px;
-
+            gap: 20px;
+            width: 100%;
             h4{
                 font-weight: 600;
                 margin: 0;
             }
-        }
 
-        &__admin{
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-
-            h4{
-                font-weight: 600;
-                margin: 0;
+            .loaded{
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
             }
         }
     }

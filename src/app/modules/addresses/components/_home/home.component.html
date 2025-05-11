@@ -9,18 +9,40 @@
     <h4
     *ngIf="user.role == 'ADMIN'">Seus Endereços:</h4>
 
-    <app-strip
-    *ngFor="let address of addressesUser"
-    [address]="address"
-    (deleteAddress)="onDeleteAddress($event)"
-    (editAddress)="changeEditAddress($event)"
-    ></app-strip>
+    <div
+    class="loaded"
+    *ngIf="!isLoadingUser">
+      <p *ngIf="addressesUser.length == 0">Nenhum Endereço cadastardo!</p>
 
-    <app-pagination
+      <app-strip
+      *ngFor="let address of addressesUser"
+      [address]="address"
+      (deleteAddress)="onDeleteAddress($event)"
+      (editAddress)="changeEditAddress($event)"
+      ></app-strip>
+
+      <app-pagination
+      *ngIf="!isLoadingUser"
       [totalPages]="totalPagesUser"
       [currentPage]="currentPageUser"
       (pageChange)="handlePageChangeUser($event)">
-    </app-pagination>
+      </app-pagination>
+    </div>
+
+    <div
+    class="loading"
+    *ngIf="isLoadingUser">
+      <ngx-skeleton-loader
+      *ngFor="let i of [1,2]"
+      appearance="line"
+      animation="progress"
+      [theme]="{ 
+          width: '100%', 
+          'height': '150px',
+          'border-radius': '20px',
+          'background-color': '#dbdbdb'}">
+      </ngx-skeleton-loader>
+    </div>
   </div>
 
   <div 
@@ -28,18 +50,39 @@
   *ngIf="user.role == 'ADMIN'">
     <h4>Endereço dos Usuários:</h4>
 
-    <app-strip
-    *ngFor="let address of addressesAdmin"
-    [address]="address"
-    (deleteAddress)="onDeleteAddress($event)"
-    (editAddress)="changeEditAddress($event)"
-    ></app-strip>
+    <div
+    class="loaded"
+    *ngIf="!isLoadingAdmin">
+       <p *ngIf="addressesAdmin.length == 0">Nenhum Endereço cadastardo!</p>
 
-    <app-pagination
-      [totalPages]="totalPagesAdmin"
-      [currentPage]="currentPageAdmin"
-      (pageChange)="handlePageChangeAdmin($event)">
-    </app-pagination>
+      <app-strip
+      *ngFor="let address of addressesAdmin"
+      [address]="address"
+      (deleteAddress)="onDeleteAddress($event)"
+      (editAddress)="changeEditAddress($event)"
+      ></app-strip>
+  
+      <app-pagination
+        [totalPages]="totalPagesAdmin"
+        [currentPage]="currentPageAdmin"
+        (pageChange)="handlePageChangeAdmin($event)">
+      </app-pagination>
+    </div>
+
+    <div
+    class="loading"
+    *ngIf="isLoadingAdmin">
+      <ngx-skeleton-loader
+      *ngFor="let i of [1,2]"
+      appearance="line"
+      animation="progress"
+      [theme]="{ 
+          width: '100%', 
+          'height': '150px',
+          'border-radius': '20px',
+          'background-color': '#dbdbdb'}">
+      </ngx-skeleton-loader>
+    </div>
   </div>
 </div>
 

@@ -35,6 +35,9 @@ export class HomeComponent implements OnInit, OnDestroy{
   showPopUpEdit: boolean = false;
   showPopUpNew: boolean = false;
 
+  isLoadingAdmin: boolean = false;
+  isLoadingUser: boolean = false;
+
   constructor(
     private addressService: AddressService,
     private userService: UserService,
@@ -61,21 +64,25 @@ export class HomeComponent implements OnInit, OnDestroy{
   }
 
   loadAddressByUser(): void {
+    this.isLoadingUser = true;
     this.addressService.fetchListAddressByUser(this.currentPageUser, this.pageSizeUser)
       .pipe(takeUntil(this.destroy$))
       .subscribe({
         next: (response) => {
           this.addressesUser = response.content;
           this.totalItemsUser = response.totalElements;
-          this.totalPagesUser = response.totalPages;
+          this.totalPagesUser = response.totalPages; 
+          this.isLoadingUser = false;
         },
         error: () => {
           ToastError('Erro ao carregar seus endereços');
+          this.isLoadingUser = false;
         }
       });
   }
 
   loadAddressByAdmin(): void {
+    this.isLoadingAdmin = true;
     this.addressService.fetchListAddresses(this.currentPageAdmin, this.pageSizeAdmin)
       .pipe(takeUntil(this.destroy$))
       .subscribe({
@@ -83,9 +90,11 @@ export class HomeComponent implements OnInit, OnDestroy{
           this.addressesAdmin = response.content;
           this.totalItemsAdmin = response.totalElements;
           this.totalPagesAdmin = response.totalPages;
+          this.isLoadingAdmin = false;
         },
         error: () => {
           ToastError('Erro ao carregar endereços');
+          this.isLoadingAdmin = false;
         }
       });
   }

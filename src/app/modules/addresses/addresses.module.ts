@@ -8,6 +8,7 @@ import { PopUpEditComponent } from './components/pop-up-edit/pop-up-edit.compone
 import { PopUpNewComponent } from "./components/pop-up-new/pop-up-new.component";
 import { PaginationComponent } from "../../shared/pagination/pagination.component";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PopUpNewComponent,
     PaginationComponent,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxSkeletonLoaderModule
 ]
 })
 export class AddressesModule { }

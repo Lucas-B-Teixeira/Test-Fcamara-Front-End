@@ -8,6 +8,16 @@
     padding: 0px 0px 0px 10%;
     margin-top: 20px;
 
+    .loaded, .loading{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .loading{
+        overflow-y: hidden;
+    }
+
     h1{
         width: 100%;
         margin: 0;

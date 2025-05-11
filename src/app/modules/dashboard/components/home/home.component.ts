@@ -20,6 +20,8 @@ export class HomeComponent implements OnInit, OnDestroy{
   numberOfUsers!: number;
   numberOfAddresses!: number;
 
+  isLoading: boolean = false;
+
   constructor(
     private userService: UserService,
     private addressService: AddressService
@@ -39,6 +41,8 @@ export class HomeComponent implements OnInit, OnDestroy{
           ? this.userService.fetchCountUsers()
           : of(null);
 
+        this.isLoading = true;
+
         forkJoin([address$, users$])
           .pipe(takeUntil(this.destroy$))
           .subscribe({
@@ -47,9 +51,11 @@ export class HomeComponent implements OnInit, OnDestroy{
               if (userCount !== null) {
                 this.numberOfUsers = userCount;
               }
+              this.isLoading = false;
             },
             error: () => {
               ToastError('Erro ao consultar dados do dashboard');
+              this.isLoading = false;
             }
           });
       });

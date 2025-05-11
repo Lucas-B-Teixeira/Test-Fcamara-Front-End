@@ -1,18 +1,39 @@
 <div class="container">
   <h1>Usuários:</h1>
   
-  <app-strip
-  *ngFor="let user of users"
-  [user]="user"
-  (deleteUser)="onDeleteUser($event)"
-  (editUser)="changeEditUser($event)"
-  ></app-strip>
+  <div
+  class="loaded"
+  *ngIf="!isLoading">
+    <p *ngIf="users.length == 0">Nenhum Usuário cadastrado!</p>
+    <app-strip
+    *ngFor="let user of users"
+    [user]="user"
+    (deleteUser)="onDeleteUser($event)"
+    (editUser)="changeEditUser($event)"
+    ></app-strip>
+  </div>
+
+  <div
+  class="loading"
+  *ngIf="isLoading">
+    <ngx-skeleton-loader
+    *ngFor="let i of [1,2,3,4]"
+    appearance="line"
+    animation="progress"
+    [theme]="{ 
+        width: '100%', 
+        'height': '150px',
+        'border-radius': '20px',
+        'background-color': '#dbdbdb'}">
+    </ngx-skeleton-loader>
+  </div>
 </div>
 
 <app-pagination
-  [totalPages]="totalPages"
-  [currentPage]="currentPage"
-  (pageChange)="handlePageChange($event)">
+*ngIf="!isLoading"
+[totalPages]="totalPages"
+[currentPage]="currentPage"
+(pageChange)="handlePageChange($event)">
 </app-pagination>
 
 <app-pop-up-edit

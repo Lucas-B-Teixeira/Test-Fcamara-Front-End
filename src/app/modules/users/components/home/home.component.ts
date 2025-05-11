@@ -24,6 +24,8 @@ export class HomeComponent implements OnInit, OnDestroy{
   editUser!: UserInterface;
   showPopUpEdit: boolean = false;
 
+  isLoading: boolean = false;
+
   constructor(
     private userService: UserService,
     private router: Router
@@ -42,6 +44,7 @@ export class HomeComponent implements OnInit, OnDestroy{
   }
 
   loadUsers(): void {
+    this.isLoading = true;
     this.userService.fetchUsers(this.currentPage, this.pageSize)
       .pipe(takeUntil(this.destroy$))
       .subscribe({
@@ -49,10 +52,12 @@ export class HomeComponent implements OnInit, OnDestroy{
           this.users = response.content;
           this.totalItems = response.totalElements;
           this.totalPages = response.totalPages;
+          this.isLoading = false;
         },
         error: () => {
           this.router.navigate(['/dashbaord']);
           ToastError('Erro ao carregar usuários');
+           this.isLoading = false;
         }
       });
   }

@@ -7,6 +7,7 @@ import { SideBarComponent } from "../../shared/side-bar/side-bar.component";
 import { CardAllUsersComponent } from "./components/card-all-users/card-all-users.component";
 import { CardAllAddressComponent } from "./components/card-all-address/card-all-address.component";
 import { RouterModule } from '@angular/router';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { RouterModule } from '@angular/router';
     SideBarComponent,
     CardAllUsersComponent,
     CardAllAddressComponent,
-    RouterModule
+    RouterModule,
+    NgxSkeletonLoaderModule
 ]
 })
 export class DashboardModule { }
