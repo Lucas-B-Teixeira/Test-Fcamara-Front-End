@@ -1,0 +1,58 @@
+<div 
+class="overlay">
+    <div class="popup-content">
+      <button 
+      class="close-btn"
+      (click)="onClosePopUp()" >×</button>
+      
+      <div class="container">
+        <div class="container__text">
+          <h1>Editar - {{user.name}}</h1>
+        </div>
+
+        <form 
+        class="container__form" 
+        action="" 
+        [formGroup]="editForm">
+            <div 
+            class="container__form__name">
+              <input 
+              type="text" 
+              formControlName="name" 
+              placeholder=" " 
+              (blur)="invalidName()">
+              <label>Nome</label>
+            </div>
+
+            <div 
+            class="container__form__email">
+              <input 
+              type="text" 
+              formControlName="email" 
+              placeholder=" " 
+              (blur)="invalidEmail()">
+              <label>E-mail</label>
+            </div>
+
+            <div 
+            class="container__form__email">
+              <select 
+              name="" 
+              id=""
+              formControlName="role" >
+                <option value="ADMIN">ADMIN</option>
+                <option value="USER">USER</option>
+              </select>
+              <label>Role</label>
+            </div>
+
+            <button 
+            [disabled]="!editForm.valid || !isDifferentUser" 
+            (click)="onSave()"
+            >
+              Salvar Alterações
+            </button>
+          </form>
+
+    </div>
+  </div>

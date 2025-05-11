@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="container__head">
+    <h1>Endereços:</h1>
+    <button
+    (click)="changeShowPopUpNew()">Adicionar Endereço</button>
+  </div>
+
+  <div class="container__box__users">
+    <h4
+    *ngIf="user.role == 'ADMIN'">Seus Endereços:</h4>
+
+    <app-strip
+    *ngFor="let address of addressesUser"
+    [address]="address"
+    (deleteAddress)="onDeleteAddress($event)"
+    (editAddress)="changeEditAddress($event)"
+    ></app-strip>
+
+    <app-pagination
+      [totalPages]="totalPagesUser"
+      [currentPage]="currentPageUser"
+      (pageChange)="handlePageChangeUser($event)">
+    </app-pagination>
+  </div>
+
+  <div 
+  class="container__box__admin"
+  *ngIf="user.role == 'ADMIN'">
+    <h4>Endereço dos Usuários:</h4>
+
+    <app-strip
+    *ngFor="let address of addressesAdmin"
+    [address]="address"
+    (deleteAddress)="onDeleteAddress($event)"
+    (editAddress)="changeEditAddress($event)"
+    ></app-strip>
+
+    <app-pagination
+      [totalPages]="totalPagesAdmin"
+      [currentPage]="currentPageAdmin"
+      (pageChange)="handlePageChangeAdmin($event)">
+    </app-pagination>
+  </div>
+</div>
+
+<app-pop-up-new
+*ngIf="showPopUpNew"
+(closePopUp)="changeShowPopUpNew()"
+(newAddress)="onAddAddress($event)"
+></app-pop-up-new>
+
+<app-pop-up-edit
+*ngIf="showPopUpEdit"
+[address]="editAddress"
+(closePopUp)="changeShowPopUpEdit()"
+(updateAddress)="onEditAddress($event)"
+></app-pop-up-edit>

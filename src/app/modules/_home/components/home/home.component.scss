@@ -1,0 +1,51 @@
+.container{
+  display: flex;
+  width: 99%;
+  height: 98dvh;
+  margin-left: 0.5%;
+  margin-top: 1dvh;
+  overflow-y: hidden;
+  border-radius: 20px;
+  background-color: rgb(241, 241, 241);
+  position: relative;
+  // scrollbar-width: thin;
+  // scrollbar-color: #ccc transparent;
+
+  &__menu{
+    position: sticky;
+    top: 0;
+  }
+
+  &__content{
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 250px);
+    height: 100%;
+
+    &__header{
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    &:last-child{
+      overflow-y: auto;
+
+      &::-webkit-scrollbar{
+        width: 3px;
+        height: 3px;
+        border-radius: 100px;
+      }
+    
+      &::-webkit-scrollbar-track{
+          background-color: rgb(204, 204, 204);
+      }
+    
+      &::-webkit-scrollbar-thumb{
+          background-color: #0166ff;
+          border-radius: 20px;
+          border: 5% solid rgb(204, 204, 204);
+      }
+    }
+  }
+}

@@ -7,13 +7,17 @@ export const routes: Routes = [
         loadChildren: () => import('./modules/login-register/login-register.module').then(m => m.LoginRegisterModule) 
     },
     {
-        path: 'dashboard',
-        loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule) ,
+        path: 'home',
+        loadChildren: () => import('./modules/_home/home.module').then(m => m.HomeModule) ,
         canActivate: [authGuard]
     },
     { 
         path: '', 
         redirectTo: 'login', 
         pathMatch: 'full' 
+    },
+    { 
+        path: '**', 
+        loadChildren: () => import('./modules/login-register/login-register.module').then(m => m.LoginRegisterModule) 
     },
 ];

@@ -3,5 +3,6 @@ export interface UserInterface{
     name: string;
     email: string;
     role: 'USER' | 'ADMIN';
+    addressCount: number; 
     createdAt: string;
 }

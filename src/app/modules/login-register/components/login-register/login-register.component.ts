@@ -2,11 +2,11 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, ValidatorFn, AbstractControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
-import { LoginService } from '../../../../core/api/login/login.service';
 import { ResponseToken } from '../../../../core/models/login/response-token.model';
 import Swal from 'sweetalert2';
-import { RegisterUserService } from '../../../../core/api/register-user/register-user.service';
-import { ToastError, ToastInfo } from '../../../../utils/toast.util';
+import { ToastInfo, ToastSuccess } from '../../../../utils/toast.util';
+import { AuthService } from '../../../../core/auth/service/auth/auth.service';
+import { UserService } from '../../../../core/data-access/user/user.service';
 
 @Component({
   selector: 'app-login-register',
@@ -26,8 +26,8 @@ export class LoginRegisterComponent implements OnInit, OnDestroy{
 
   constructor(
     private formBuilder: FormBuilder,
-    private loginService: LoginService,
-    private registerUserService: RegisterUserService,
+    private authService: AuthService,
+    private userService: UserService,
     private route: ActivatedRoute,
     private router: Router
   ) {}
@@ -94,12 +94,12 @@ export class LoginRegisterComponent implements OnInit, OnDestroy{
   onLogin(): void{
     window.sessionStorage.clear()
     if(this.formLogin.valid){
-      this.loginService.login(this.formLogin.value)
+      this.authService.login(this.formLogin.value)
         .pipe(takeUntil(this.destroy$))
         .subscribe({
           next: (token: ResponseToken) => {
             window.sessionStorage.setItem('access_token', token.token)
-            this.router.navigate(['/dashboard']);
+            this.router.navigate(['/home']);
           },
           error: (e) => {
             if(e.status = 401){
@@ -128,11 +128,12 @@ export class LoginRegisterComponent implements OnInit, OnDestroy{
 
   onCreateUser(): void{
     if(this.formRegister.valid){
-      this.registerUserService.newUser(this.formRegister.value)
+      this.userService.fetchCreateUser(this.formRegister.value)
         .pipe(takeUntil(this.destroy$))
         .subscribe({
           next: (r) => {
             this.formLoginOrRegisterVisible()
+            ToastSuccess('Usuário criado com sucesso!')
           },
           error: (e) => {
             Swal.fire({

@@ -1,1 +1,31 @@
-<app-side-bar></app-side-bar>
+<div
+class="container">
+
+    <div class="container__box">
+        <div class="container__box__greetings">
+
+            <h1>Bem-vindo de volta!</h1>
+
+            <p 
+            *ngIf="user.role != 'ADMIN'">
+                Gerencie suas informações com facilidade e segurança. Estamos aqui para ajudar no que for preciso.
+            </p>
+
+            <p 
+            *ngIf="user.role == 'ADMIN'">
+                Gerencie suas informações e dos <strong style="font-weight: 600;">usuários</strong> com facilidade e segurança. Estamos aqui para ajudar no que for preciso.
+            </p>
+        </div>
+
+        <div class="container__box__cards">
+            <app-card-all-users
+            *ngIf="user.role == 'ADMIN'"
+            [numberOfUsers]="numberOfUsers"></app-card-all-users>
+
+            <app-card-all-address
+            [numberOfAddresses]="numberOfAddresses"></app-card-all-address>
+        </div>
+
+
+    </div>
+</div>

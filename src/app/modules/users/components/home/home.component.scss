@@ -1,0 +1,17 @@
+.container{
+    height: 95%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    gap: 20px;
+    padding: 0px 0px 0px 10%;
+    margin-top: 20px;
+
+    h1{
+        width: 100%;
+        margin: 0;
+        font-weight: 600;
+        font-size: 25px;
+    }
+}

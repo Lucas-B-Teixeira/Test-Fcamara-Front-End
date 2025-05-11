@@ -1,1 +1,41 @@
-<p>header works!</p>
+<header>
+    <div class="container">
+        <div class="container__greeting">
+            <h1>E aí, {{user.name}}! Tudo pronto para hoje?</h1>
+            <p>Estamos aqui para simplificar o seu trabalho.</p>
+        </div>
+    
+        <div class="container__search">
+            <input type="text" placeholder="Pesquise qualquer coisa...">
+            <img src="../../../assets/images/iconHeader/lupa.png" alt="">
+        </div>
+    
+        <span class="line"></span>
+    
+        <div class="container__actions">
+            <img src="../../../assets/images/iconHeader/notificacao.png" alt="">
+            <img src="../../../assets/images/iconHeader/pergunta.png" alt="">
+        </div>
+    
+        <span class="line"></span>
+    
+        <div class="container__user" 
+        (click)="changeMenuUserVsible()">
+            <div 
+            class="avatar">
+                {{ getInitials(user.name) }}
+            </div>
+
+            <h4>{{user.name}}</h4>
+
+            <button 
+            class="container__user__options">
+                <img src="../../../assets/images/iconHeader/cima-baixo.png" alt="">
+            </button>
+
+             <app-menu-user 
+             *ngIf= "menuUserVisible"
+             [user]="user"></app-menu-user>
+        </div>
+    </div>
+</header>

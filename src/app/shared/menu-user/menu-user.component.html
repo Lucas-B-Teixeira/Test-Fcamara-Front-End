@@ -1,0 +1,33 @@
+<div class="container">
+    
+    <div class="container__user">
+        <div 
+        class="avatar">
+            {{ getInitials(user.name) }}
+        </div>
+
+        <h1>{{user.name}}</h1>
+        <p>{{user.email}}</p>
+    </div>
+
+    <span></span>
+
+    <div class="container__list">
+        <ul>
+            <dt><img src="../../../assets/images/menu-user/configuracoes.png" alt="">Configurações da Conta</dt>
+            <dt><img src="../../../assets/images/menu-user/help.png" alt="">Centro de Ajuda</dt>
+            <dt><img src="../../../assets/images/menu-user/avaliação.png" alt="">Avaliar</dt>
+        </ul>
+    </div>
+
+    <span></span>
+
+    <div class="container__exit">
+        <button 
+        (click)="logout()"
+        >
+            <img src="../../../assets/images/menu-user/sair.png" alt="">
+            Sair
+        </button>
+    </div>
+</div>

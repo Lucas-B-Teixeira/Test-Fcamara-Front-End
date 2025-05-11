@@ -52,7 +52,7 @@ aside{
     width: 100%;
     margin-top: 30px;
 
-    &__one, &__two, &__theree{
+   ul{
         width: 100%;
         padding: 0;
         margin: 0;
@@ -88,12 +88,6 @@ aside{
     }
 
     
-}
-
-.line{
-    height: 1px;
-    width: 60%;
-    background-color: rgb(255, 255, 255, 0.3);
 }
 
 .selected{

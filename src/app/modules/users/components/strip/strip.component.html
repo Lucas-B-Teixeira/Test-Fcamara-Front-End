@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="container__user">
+        <div 
+        class="avatar">
+            {{ getInitials(user.name) }}
+        </div>
+        <div class="container__user__info">
+            <h1>{{user.name}}</h1>
+            <h4>{{user.email}}</h4>
+        </div>
+    </div>
+
+    <div class="container__role">
+       <h1>Role</h1>
+        <h4>{{user.role}}</h4>
+    </div>
+
+    <div class="container__address">
+        <div>
+            <h1>Endereços</h1>
+            <img 
+            src="../../../../../assets/images/iconsUser/adicionar.png" 
+            alt=""
+            (click)="changeShowPopUpNew()">
+        </div>
+        <h4>{{user.addressCount}}</h4>
+    </div>
+
+    <div class="container__actions">
+        <button
+        (click)="onEditUser()">
+            Editar 
+            <img src="../../../../../assets/images/iconsUser/ferramenta-lapis.png" alt="">
+       </button>
+
+       <button
+       (click)="onDeleteUser()">
+           Excluir 
+           <img src="../../../../../assets/images/iconsUser/lixeira-de-reciclagem.png" alt="">
+        </button>
+    </div>
+</div>
+
+<app-pop-up-new
+*ngIf="showPopUpNew"
+[user]="user"
+(closePopUp)="changeShowPopUpNew()"
+(newAddress)="addAddress()"
+></app-pop-up-new>

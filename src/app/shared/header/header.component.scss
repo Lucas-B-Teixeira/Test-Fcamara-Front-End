@@ -1,0 +1,128 @@
+header{
+    height: 80px;
+    width: calc(100% - 90px);
+    background-color: white;
+    border-bottom: 1px solid rgb(0, 0, 0, 0.2);
+    padding-left: 60px;
+    padding-right: 30px;
+    z-index: 9999;
+}
+
+.container{
+    width: 98%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: space-between; 
+    
+
+    &__greeting{
+        flex: 1; 
+
+        h1{
+            margin: 0;
+            font-size: 18px;
+            font-weight: 600;
+            opacity: 0.8;
+        }
+
+        p{
+            margin: 0;
+            font-size: 14px;
+            font-weight: 200;
+            opacity: 0.6;
+        }
+    }
+
+    &__search{
+        width: 430px;
+        height: 40px;
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        input{
+            height: 100%;
+            font-size: 16px;
+            width: 100%;
+            border-radius: 50px;
+            padding-left: 40px;
+            padding-right: 20px;
+            border: solid 1px rgb(0, 0, 0, 0.2);
+            outline: none; 
+
+            &:focus{
+                border: solid 1px rgb(1, 102, 255, 1); 
+            }
+        }
+
+        img{
+            cursor: pointer;
+            width: 20px;
+            left: 4%;
+            position: absolute;
+            opacity: 0.5;
+        }
+
+    }
+
+    &__actions{
+        display: flex;
+        gap: 10px;
+
+        img{
+            width: 25px;
+            opacity: 0.6;
+            cursor: pointer;
+        }
+    }
+
+    &__user{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
+        position: relative;
+        cursor: pointer;
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            background-color: #d2d2d3;
+            color: rgb(80, 79, 79);
+            font-weight: bold;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            text-transform: uppercase;
+        }
+
+        h4{
+            opacity: 0.7;
+            padding-left: 5px;
+        }
+
+        &__options{
+            background: none;
+            border: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+    
+            img{
+                width: 15px;
+                opacity: 0.7;
+            }
+        }
+    }
+}
+
+.line{
+    height: 30px;
+    width: 2px;
+    background-color: rgb(0, 0, 0, 0.2);
+}

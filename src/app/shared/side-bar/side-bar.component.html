@@ -7,11 +7,11 @@
     </div>
 
     <nav class="navigation">
-        <ul class="navigation__one">
+        <ul>
 
             <dl 
-            class="navigation__one__home"
-            routerLink="/dashboard"
+            class="navigation__home"
+            routerLink="/home/dashboard"
             (click)="selectItem('dashboard')"
             [ngClass]="{'selected': selectedItem == 'dashboard'}">
                 <img src="../../../assets/images/home.png" alt="">
@@ -19,18 +19,19 @@
             </dl>
 
             <dl 
-            class="navigation__one__tools" 
-            routerLink="/tools"
-            (click)="selectItem('tools')"
+            class="navigation__users" 
+            *ngIf="user.role == 'ADMIN'"
+            routerLink="/home/users"
+            (click)="selectItem('users')"
             [ngClass]="{'selected': selectedItem === 'users'}">
-                <img src="../../../assets/images/home.png" alt="">
+                <img src="../../../assets/images/users.png" alt="">
                 <h4>Usuários</h4>
             </dl>
 
              <dl 
-            class="navigation__one__tools" 
-            routerLink="/tools"
-            (click)="selectItem('tools')"
+            class="navigation__addresses" 
+            routerLink="/home/addresses"
+            (click)="selectItem('addresses')"
             [ngClass]="{'selected': selectedItem === 'address'}">
                 <img src="../../../assets/images/address.png" alt="">
                 <h4>Endereços</h4>

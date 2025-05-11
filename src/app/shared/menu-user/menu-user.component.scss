@@ -1,0 +1,135 @@
+.container {
+    width: 250px;
+    background-color: white;
+    position: absolute;
+    box-shadow: 0px 0px 10px rgb(0, 0, 0, 0.2);
+    right: 0;
+    top: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 15px;
+    z-index: 9999;
+    
+    &__user {
+        width: 100%;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;        
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            background-color: #d2d2d3;
+            color: rgb(80, 79, 79);
+            font-weight: bold;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: 18px;
+            opacity: 0.8;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        p {
+            font-size: 14px;
+            opacity: 0.6;
+            font-weight: 200;
+            margin: 0;
+        }
+
+    }
+
+    span{
+        width: 100%;
+        height: 1px;
+        background-color: rgb(170, 169, 169);
+    }
+
+    &__list{
+        width: 100%;
+        
+        ul{
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 2px;
+            
+            
+            dt{
+                width: 95%;
+                height: 40px;
+                font-size: 14px;
+                opacity: 0.6;
+                font-weight: 200;
+                margin: 0;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                padding-left: 5%;
+                background-color: white;
+                cursor: pointer;
+                transition: background-color 0.2s ease;
+
+                &:hover{
+                    background-color:  #c0c0c0;
+                }
+
+                img{
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+
+        }
+        
+    }
+
+    &__exit{
+        width: 100%;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        button{
+            width: 100%;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            font-size: 14px;
+            opacity: 0.6;
+            font-weight: 200;
+            background-color: white;
+            border: none;
+            cursor: pointer;
+
+            &:hover{
+                background-color:  #c0c0c0;
+            }
+        }
+
+        img{
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+
+}

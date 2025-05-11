@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="container__info">
+
+        <div 
+        class="container__info__user">
+            <h1>Usuário</h1>
+            <h4>{{address.userEmail}}</h4>
+        </div>
+    
+        <div 
+        class="container__info__state">
+            <h1>Estado</h1>
+            <h4>{{address.state}}</h4>
+        </div>
+    
+        <div 
+        class="container__info__city">
+            <h1>Cidade</h1>
+            <h4>{{address.city}}</h4>
+        </div>
+    
+        <div 
+        class="container__info__street">
+            <h1>Rua</h1>
+            <h4>{{address.street}}</h4>
+        </div>
+    
+        <div 
+        class="container__info__district">
+            <h1>Bairro</h1>
+            <h4>{{address.district}}</h4>
+        </div>
+    
+        <div 
+        class="container__info__number">
+            <h1>Número</h1>
+            <h4>{{address.number}}</h4>
+        </div>
+    
+        <div 
+        class="container__info__cep">
+            <h1>CEP</h1>
+            <h4>{{address.zipCode}}</h4>
+        </div>
+    
+        <div 
+        class="container__info__complement">
+            <h1>Comple.</h1>
+            <h4>{{address.complement}}</h4>
+        </div>
+    </div>
+    
+    <div class="container__actions">
+        <button
+        (click)="onEditAddress()">
+            Editar 
+            <img src="../../../../../assets/images/iconsUser/ferramenta-lapis.png" alt="">
+        </button>
+    
+        <button
+        (click)="onDeleteAddress()">
+            Excluir 
+            <img src="../../../../../assets/images/iconsUser/lixeira-de-reciclagem.png" alt="">
+        </button>
+    </div>
+
+</div>

@@ -1,0 +1,55 @@
+<div 
+class="overlay">
+    <div class="popup-content">
+      <button 
+      class="close-btn"
+      (click)="onClosePopUp()" >×</button>
+      
+      <div class="container">
+        <div class="container__text">
+          <h1>Adicionar Endereço</h1>
+        </div>
+
+        <form 
+        class="container__form" 
+        action="" 
+        [formGroup]="formAddress">
+            <div 
+            class="container__form__cep">
+              <input 
+              type="text" 
+              formControlName="zipCode" 
+              placeholder=" " 
+              (blur)="invalidZipCode()">
+              <label>CEP</label>
+            </div>
+
+            <div 
+            class="container__form__number">
+              <input 
+              type="number" 
+              formControlName="number" 
+              placeholder=" " 
+              (blur)="invalidNumber()">
+              <label>Número</label>
+            </div>
+
+            <div 
+            class="container__form__comp">
+              <input 
+              type="text" 
+              formControlName="complement" 
+              placeholder=" " 
+              (blur)="invalidComplement()">
+              <label>Complemento</label>
+            </div>
+
+            <button 
+            [disabled]="!formAddress.valid" 
+            (click)="onCreate()"
+            >
+              Criar
+            </button>
+          </form>
+    </div>
+  </div>

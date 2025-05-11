@@ -1,17 +1,21 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Router, NavigationEnd, RouterModule } from '@angular/router';
 import { Subject, filter, takeUntil } from 'rxjs';
+import { UserInterface } from '../../core/models/user/user.model';
 
 @Component({
   selector: 'app-side-bar',
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   templateUrl: './side-bar.component.html',
   styleUrl: './side-bar.component.scss'
 })
 export class SideBarComponent implements OnInit, OnDestroy{
+
+  @Input({required: true}) user!: UserInterface;
 
   selectedItem!: 
   'dashboard' |

@@ -1,0 +1,20 @@
+<div class="container">
+
+  <app-side-bar 
+  class="container__menu"
+  [user]="user!"
+  ></app-side-bar>
+
+  <div 
+  class="container__content">
+
+    <app-header 
+    class="container__content__header"
+    [user]="user!">
+    </app-header>
+
+    <router-outlet 
+    class="container__content__outlet">
+    </router-outlet>
+  </div>
+</div>

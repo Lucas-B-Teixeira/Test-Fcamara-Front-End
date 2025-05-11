@@ -1,0 +1,23 @@
+<div class="container">
+  <h1>Usuários:</h1>
+  
+  <app-strip
+  *ngFor="let user of users"
+  [user]="user"
+  (deleteUser)="onDeleteUser($event)"
+  (editUser)="changeEditUser($event)"
+  ></app-strip>
+</div>
+
+<app-pagination
+  [totalPages]="totalPages"
+  [currentPage]="currentPage"
+  (pageChange)="handlePageChange($event)">
+</app-pagination>
+
+<app-pop-up-edit
+*ngIf="editUser && showPopUpEdit"
+[user]="editUser"
+(closePopUp)="changeShowPopUpEdit()"
+(saveUpdate)="onEditUser($event)"
+></app-pop-up-edit>
