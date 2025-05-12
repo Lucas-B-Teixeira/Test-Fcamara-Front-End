@@ -94,7 +94,7 @@ Abra o navegador e acesse: [http://localhost:4200](http://localhost:4200)
 ---------------------
 
 A aplicação se comunica com a API desenvolvida em Spring Boot. **Certifique-se que o backend esteja rodando em localhost na porta correta(8080)**.
-
+[Repositório Back-End](https://github.com/Lucas-B-Teixeira/Test-Fcamara-Back-End)
     
 
 📸 Demonstração 
