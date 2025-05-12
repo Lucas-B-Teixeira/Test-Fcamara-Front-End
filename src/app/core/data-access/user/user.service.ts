@@ -44,8 +44,6 @@ export class UserService {
 
     if(sort && sort.sortBy) params = params.set('sortBy', sort.sortBy);
     if(sort && sort.sortDir) params = params.set('sortDir', sort.sortDir);
-
-      console.log(sort)
     
     return this.http.get<PageResponse<UserInterface>>(`${this.URL_SERVIDOR}/api/v1/users`, {
       params,
