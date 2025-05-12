@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { UserInterface } from '../../models/user/user.model';
@@ -37,12 +37,18 @@ export class UserService {
     })
   }
 
-  public fetchUsers(page: number, size: number): Observable<PageResponse<UserInterface>> {
+  public fetchUsers(page: number, size: number, sort?: { sortBy: string; sortDir: string }): Observable<PageResponse<UserInterface>> {
+    let params = new HttpParams()
+      .set('page', page)
+      .set('size', size)
+
+    if(sort && sort.sortBy) params = params.set('sortBy', sort.sortBy);
+    if(sort && sort.sortDir) params = params.set('sortDir', sort.sortDir);
+
+      console.log(sort)
+    
     return this.http.get<PageResponse<UserInterface>>(`${this.URL_SERVIDOR}/api/v1/users`, {
-      params: {
-        page: page.toString(),
-        size: size.toString()
-      },
+      params,
       headers: {
         'Authorization': `Bearer ${window.sessionStorage.getItem('access_token')!}`
       }

@@ -43,9 +43,9 @@ export class HomeComponent implements OnInit, OnDestroy{
     this.destroy$.complete();
   }
 
-  loadUsers(): void {
+  loadUsers(sort?: { sortBy: string; sortDir: string }): void {
     this.isLoading = true;
-    this.userService.fetchUsers(this.currentPage, this.pageSize)
+    this.userService.fetchUsers(this.currentPage, this.pageSize, sort)
       .pipe(takeUntil(this.destroy$))
       .subscribe({
         next: (response) => {

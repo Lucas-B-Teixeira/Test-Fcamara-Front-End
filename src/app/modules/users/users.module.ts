@@ -9,12 +9,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PopUpNewComponent } from "../addresses/components/pop-up-new/pop-up-new.component";
 import { PopUpEditComponent } from "./components/pop-up-edit/pop-up-edit.component";
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { SortUsersComponent } from "./components/sort-users/sort-users.component";
 
 
 @NgModule({
   declarations: [
     HomeComponent,
-    StripComponent
+    StripComponent,
+    SortUsersComponent
   ],
   imports: [
     CommonModule,

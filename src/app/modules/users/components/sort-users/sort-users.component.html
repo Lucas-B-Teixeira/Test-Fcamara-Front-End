@@ -1,0 +1,14 @@
+<div class="sort-container">
+  <label for="sortBy" class="sort-label">Ordenar por:</label>
+
+  <div class="select-container">
+    <select id="sortBy" (change)="changeSort($event)">
+      <option value="name">Nome</option>
+      <option value="email">Email</option>
+      <option value="createdAt">Data de Criação</option>
+    </select>
+    <button (click)="toggleDirection()" class="direction-button">
+      <span>{{ sortDir === 'asc' ? 'A-Z / Crescente' : 'Z-A / Decrescente' }}</span>
+    </button>
+  </div>
+</div>

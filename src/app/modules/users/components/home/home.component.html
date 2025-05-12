@@ -1,10 +1,15 @@
 <div class="container">
-  <h1>Usuários:</h1>
+  <div class="container__head">
+    <h1>Usuários:</h1>
+    <app-sort-users 
+    (sortChange)="loadUsers($event)"></app-sort-users>
+  </div>
   
   <div
   class="loaded"
   *ngIf="!isLoading">
     <p *ngIf="users.length == 0">Nenhum Usuário cadastrado!</p>
+
     <app-strip
     *ngFor="let user of users"
     [user]="user"

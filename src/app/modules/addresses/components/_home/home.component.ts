@@ -63,9 +63,9 @@ export class HomeComponent implements OnInit, OnDestroy{
     this.destroy$.complete();
   }
 
-  loadAddressByUser(): void {
+  loadAddressByUser(sort?: { sortBy: string; sortDir: string }): void {
     this.isLoadingUser = true;
-    this.addressService.fetchListAddressByUser(this.currentPageUser, this.pageSizeUser)
+    this.addressService.fetchListAddressByUser(this.currentPageUser, this.pageSizeUser, sort)
       .pipe(takeUntil(this.destroy$))
       .subscribe({
         next: (response) => {
@@ -81,9 +81,9 @@ export class HomeComponent implements OnInit, OnDestroy{
       });
   }
 
-  loadAddressByAdmin(): void {
+  loadAddressByAdmin(sort?: { sortBy: string; sortDir: string }): void {
     this.isLoadingAdmin = true;
-    this.addressService.fetchListAddresses(this.currentPageAdmin, this.pageSizeAdmin)
+    this.addressService.fetchListAddresses(this.currentPageAdmin, this.pageSizeAdmin, sort)
       .pipe(takeUntil(this.destroy$))
       .subscribe({
         next: (response) => {

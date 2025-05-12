@@ -8,6 +8,19 @@
     padding: 0px 0px 0px 10%;
     margin-top: 20px;
 
+    &__head{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 40px;
+
+        h1{
+            margin: 0;
+            font-weight: 600;
+            font-size: 25px;
+        }
+    }
+
     .loaded, .loading{
         display: flex;
         flex-direction: column;
@@ -16,12 +29,5 @@
 
     .loading{
         overflow-y: hidden;
-    }
-
-    h1{
-        width: 100%;
-        margin: 0;
-        font-weight: 600;
-        font-size: 25px;
     }
 }

@@ -6,8 +6,13 @@
   </div>
 
   <div class="container__box__users">
-    <h4
-    *ngIf="user.role == 'ADMIN'">Seus Endereços:</h4>
+
+    <div class="container__box__users__head">
+      <h4
+      *ngIf="user.role == 'ADMIN'">Seus Endereços:</h4>
+      <app-sort-address
+      (sortChange)="loadAddressByUser($event)"></app-sort-address>
+    </div>
 
     <div
     class="loaded"
@@ -48,7 +53,12 @@
   <div 
   class="container__box__admin"
   *ngIf="user.role == 'ADMIN'">
-    <h4>Endereço dos Usuários:</h4>
+
+    <div class="container__box__admin__head">
+      <h4>Endereço dos Usuários:</h4>
+      <app-sort-address
+      (sortChange)="loadAddressByAdmin($event)"></app-sort-address>
+    </div>
 
     <div
     class="loaded"

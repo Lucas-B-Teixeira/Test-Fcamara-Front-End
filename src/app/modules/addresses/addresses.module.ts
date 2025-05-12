@@ -9,13 +9,15 @@ import { PopUpNewComponent } from "./components/pop-up-new/pop-up-new.component"
 import { PaginationComponent } from "../../shared/pagination/pagination.component";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { SortAddressComponent } from './components/sort-address/sort-address.component';
 
 
 @NgModule({
   declarations: [
     StripComponent,
     HomeComponent,
-    PopUpEditComponent
+    PopUpEditComponent,
+    SortAddressComponent
   ],
   imports: [
     CommonModule,

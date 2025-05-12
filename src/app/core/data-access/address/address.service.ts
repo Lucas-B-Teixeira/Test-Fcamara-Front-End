@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AddressInterface } from '../../models/address/address.model';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { AddressRequestInterface } from '../../models/address/address-request.model';
 import { Observable } from 'rxjs';
 import { PageResponse } from '../../models/page/page-response.model';
@@ -40,24 +40,32 @@ export class AddressService {
     })
   }
 
-  public fetchListAddressByUser(page: number, size: number): Observable<PageResponse<AddressInterface>> {
+  public fetchListAddressByUser(page: number, size: number, sort?: { sortBy: string; sortDir: string }): Observable<PageResponse<AddressInterface>> {
+    let params = new HttpParams()
+      .set('page', page)
+      .set('size', size)
+
+    if(sort && sort.sortBy) params = params.set('sortBy', sort.sortBy);
+    if(sort && sort.sortDir) params = params.set('sortDir', sort.sortDir);
+    
     return this.http.get<PageResponse<AddressInterface>>(`${this.URL_SERVIDOR}/api/v1/address`, {
-      params: {
-        page: page.toString(),
-        size: size.toString()
-      },
+      params,
       headers: {
         'Authorization': `Bearer ${window.sessionStorage.getItem('access_token')!}`
       }
     })
   }
 
-  public fetchListAddresses(page: number, size: number): Observable<PageResponse<AddressInterface>> {
+  public fetchListAddresses(page: number, size: number, sort?: { sortBy: string; sortDir: string }): Observable<PageResponse<AddressInterface>> {
+    let params = new HttpParams()
+      .set('page', page)
+      .set('size', size)
+
+    if(sort && sort.sortBy) params = params.set('sortBy', sort.sortBy);
+    if(sort && sort.sortDir) params = params.set('sortDir', sort.sortDir);
+
     return this.http.get<PageResponse<AddressInterface>>(`${this.URL_SERVIDOR}/api/v1/address/all`, {
-      params: {
-        page: page.toString(),
-        size: size.toString()
-      },
+      params,
       headers: {
         'Authorization': `Bearer ${window.sessionStorage.getItem('access_token')!}`
       }
