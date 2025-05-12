@@ -38,7 +38,7 @@ Antes de rodar o projeto, você precisa ter instalado:
     
 
   ```bash
-  git clone https://github.com/seu-usuario/seu-repositorio-frontend.git
+  git clone https://github.com/Lucas-B-Teixeira/Test-Fcamara-Front-End.git
   ```
 
   ou
